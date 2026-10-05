@@ -1,5 +1,5 @@
-const CACHE='stepflow-offline-v1-4-record-edit-fix-v2';
-const SHELL=['/','/index.html','/manifest.webmanifest','/icon-192.png','/icon-512.png'];
+const CACHE='stepflow-stepi-full-v2';
+const SHELL=['/','/index.html','/manifest.webmanifest','/icon-192.png','/icon-512.png','/stepi-main.png'];
 
 self.addEventListener('install',event=>{
   event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(SHELL)).catch(()=>{}));

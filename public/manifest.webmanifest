@@ -2,11 +2,11 @@
   "id": "/",
   "name": "STEPFLOW",
   "short_name": "STEPFLOW",
-  "description": "오늘 할 일부터 공부 기록까지, 오프라인에서도 이어지는 공부 플래너",
+  "description": "비서 강아지 스텝이와 함께 계획부터 공부 기록까지 자연스럽게 이어가는 공부 플래너",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#F5F5F5",
+  "background_color": "#FFF9E7",
   "theme_color": "#FFD85A",
   "orientation": "portrait",
   "icons": [
