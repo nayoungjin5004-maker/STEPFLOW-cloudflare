@@ -1,4 +1,4 @@
-const CACHE='stepflow-offline-pwa-v1';
+const CACHE='stepflow-offline-v1-2';
 const SHELL=['/','/index.html','/manifest.webmanifest','/icon-192.png','/icon-512.png'];
 
 self.addEventListener('install',event=>{
