@@ -1,4 +1,4 @@
-const CACHE='stepflow-stepi-redesign-v4';
+const CACHE='stepflow-stepi-assets-v5';
 const SHELL=['/','/index.html','/manifest.webmanifest','/icon-192.png','/icon-512.png','/stepi-main.png','/stepi-happy.png','/stepi-focus.png','/stepi-curious.png','/stepi-cheer.png','/stepi-worry.png','/stepi-todo.png','/stepi-calendar.png','/stepi-timer.png','/stepi-record.png'];
 
 self.addEventListener('install',event=>{

@@ -466,6 +466,39 @@ body{background:var(--bg);color:var(--text);letter-spacing:-.15px}
 #studentView .study-main-card.is-running .study-orbit-ring{background:conic-gradient(from 210deg,#FFD84D 0 86%,#EDEDEA 86% 100%);animation:timerGlow 2.8s ease-in-out infinite}
 @keyframes timerGlow{0%,100%{box-shadow:0 10px 30px rgba(20,20,20,.035)}50%{box-shadow:0 12px 34px rgba(255,216,77,.18)}}
 @media(prefers-reduced-motion:reduce){#studentView .study-main-card.is-running .study-orbit-ring{animation:none!important}}
+
+
+/* === STEPI NATIVE ASSET V5 ================================================
+   All mascot artwork is generated with native transparent backgrounds.
+   Do not crop, blend, mask, or paint image-card backgrounds behind Stepi.
+============================================================================ */
+#studentView img[src*="stepi-"],
+#loginView img[src*="stepi-"],
+.student-splash img[src*="stepi-"],
+.stepi-onboarding img[src*="stepi-"]{
+  object-fit:contain!important;
+  object-position:center!important;
+  mix-blend-mode:normal!important;
+  background:transparent!important;
+  border-radius:0!important;
+  -webkit-mask-image:none!important;
+  mask-image:none!important;
+}
+/* Keep Stepi visually separate from cards: only a very soft depth shadow. */
+#studentView img[src*="stepi-"]{filter:drop-shadow(0 5px 7px rgba(0,0,0,.045))!important}
+#loginView img[src*="stepi-"],.student-splash img[src*="stepi-"],.stepi-onboarding img[src*="stepi-"]{filter:drop-shadow(0 6px 9px rgba(0,0,0,.045))!important}
+
+/* Mobile FAB must sit above the fixed bottom navigation + device safe area. */
+#studentView .fab{
+  bottom:calc(100px + env(safe-area-inset-bottom))!important;
+  z-index:55!important;
+}
+@media(max-width:480px){
+  #studentView .fab{
+    right:16px!important;
+    bottom:calc(104px + env(safe-area-inset-bottom))!important;
+  }
+}
 </style>
 </head>
 <body>
