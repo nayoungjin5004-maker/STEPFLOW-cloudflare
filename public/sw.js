@@ -1,4 +1,4 @@
-const CACHE='stepflow-offline-v1-2';
+const CACHE='stepflow-offline-v1-3-record-edit-fix';
 const SHELL=['/','/index.html','/manifest.webmanifest','/icon-192.png','/icon-512.png'];
 
 self.addEventListener('install',event=>{
