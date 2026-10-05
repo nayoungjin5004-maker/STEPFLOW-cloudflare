@@ -188,6 +188,8 @@ function mondayOf(s){const d=parseDate(s),day=d.getUTCDay();return addDays(s,-((
 function fmtMD(s){if(!s)return'';const d=parseDate(s);return `${d.getUTCMonth()+1}/${d.getUTCDate()}`}
 function fmtKDate(s){if(!s)return'';const d=parseDate(s);return `${d.getUTCMonth()+1}월 ${d.getUTCDate()}일 ${DAY_SHORT[d.getUTCDay()]}요일`}
 function fmtHM(iso){if(!iso)return'-';return new Intl.DateTimeFormat('ko-KR',{timeZone:'Asia/Seoul',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(iso))}
+function localInputValue(iso){if(!iso)return'';const d=new Date(iso);if(Number.isNaN(d.getTime()))return'';const parts=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Seoul',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(d),o=Object.fromEntries(parts.map(p=>[p.type,p.value]));return `${o.year}-${o.month}-${o.day}T${o.hour}:${o.minute}`}
+function kstInputToIso(value){if(!value)return'';const m=String(value).match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/);if(!m)return'';const y=Number(m[1]),mo=Number(m[2]),d=Number(m[3]),h=Number(m[4]),mi=Number(m[5]);const dt=new Date(Date.UTC(y,mo-1,d,h-9,mi,0));return Number.isNaN(dt.getTime())?'':dt.toISOString()}
 function secondsText(sec){sec=Math.max(0,Math.floor(Number(sec)||0));const h=Math.floor(sec/3600),m=Math.floor(sec%3600/60);return h?`${h}시간 ${m}분`:`${m}분`}
 function clock(sec){sec=Math.max(0,Math.floor(sec));return `${pad(Math.floor(sec/3600))}:${pad(Math.floor(sec%3600/60))}:${pad(sec%60)}`}
 function uid(p='id'){return `${p}_${Date.now().toString(36)}_${Math.random().toString(36).slice(2,8)}`}
@@ -361,6 +363,7 @@ function renderTimerPlanner(){
   const legendMap=new Map();for(const ssn of sessions){const label=sessionPlannerLabel(ssn),key=ssn.todoId||ssn.planId||ssn.todoTitle||ssn.planTitle||'unrecorded';if(!legendMap.has(key))legendMap.set(key,{label,color:plannerColor(ssn)})}const legend=[...legendMap.values()].map(x=>`<span class="timer-legend-item"><i class="timer-legend-dot" style="background:${x.color}"></i>${esc(x.label)}</span>`).join('');
   const rows=sessions.slice().reverse().map(ssn=>`<div class="timer-session-row"><div class="timer-session-main"><div class="timer-session-title"><span class="timer-session-dot" style="background:${plannerColor(ssn)}"></span><b>${esc(sessionPlannerLabel(ssn))}</b></div><small>${fmtHM(ssn.startAt)} ~ ${ssn.active?'지금':fmtHM(ssn.endAt)} · ${secondsText(ssn.seconds)}${(ssn.todoId||ssn.planId)?'':' · 나중에 수정 가능'}</small></div><div class="timer-session-actions">${ssn.active?'<span class="pill good">진행 중</span>':`<button type="button" class="tiny-btn" data-edit-session="${ssn.id}">수정</button>`}</div></div>`).join('');
   $('#timerPlanner').innerHTML=grid+(legend?`<div class="timer-legend">${legend}</div>`:'')+(rows?`<div class="timer-session-list">${rows}</div>`:'<div class="timer-empty">이날 공부 기록이 없어요.</div>');
+  $$('#timerPlanner [data-edit-session]').forEach(btn=>{btn.onclick=e=>{e.preventDefault();e.stopPropagation();openStudyRecordModal(btn.dataset.editSession)}});
 }
 function rangeInfo(range){
   const t=recordDate||todayISO();
