@@ -329,6 +329,143 @@ body{background:var(--bg);color:var(--text);letter-spacing:-.15px}
   .stepi-login-copy b{font-size:19px}
 }
 
+
+
+/* === STEPFLOW / STEPI REDESIGN V4 =========================================
+   Student UI: clean white base + transparent mascot + speech-bubble language.
+   Admin UI intentionally untouched.
+============================================================================ */
+.student-mode{background:#F4F4F1}
+#studentView{
+  --s-bg:#F8F8F5;--s-surface:#FFFFFF;--s-yellow:#FFD84D;--s-yellow-soft:#FFF4B8;
+  --s-ink:#202020;--s-sub:#76736D;--s-line:#EAE9E4;--s-green:#23976E;
+  background:#F8F8F5;color:var(--s-ink)
+}
+#studentView .topbar{background:linear-gradient(180deg,rgba(248,248,245,.98),rgba(248,248,245,.92),rgba(248,248,245,0));padding-bottom:12px}
+#studentView .page{padding:8px 14px 26px}
+#studentView .card{background:#fff;border-color:#EAE9E4;box-shadow:0 8px 28px rgba(25,25,25,.035)}
+#studentView .hero:not(.stepi-home-hero):not(.stepi-record-hero){background:transparent!important}
+#studentView .parent-ref{background:#FFF9DE;border:1px solid #F5E9A9;color:#514B3E}
+#studentView .tab{background:#ECEBE7;color:#6C6961}
+#studentView .tab.active{background:#222;color:#fff}
+#studentView .btn.primary,#studentView .big-action,#studentView .fab{background:#FFD84D;color:#202020}
+#studentView .add-mini{background:#fff;border-color:#E5E2D7;color:#202020}
+#studentView .bottom{background:rgba(255,255,255,.97);border-top-color:#ECEAE4;box-shadow:0 -8px 24px rgba(20,20,20,.03)}
+#studentView .nav.active span{background:#FFF1A4}
+
+/* A living companion is always mascot + bubble, never an image-card. */
+#studentView .stepi-companion{display:flex;align-items:flex-end;gap:4px;margin:4px 0 18px;min-height:132px;background:transparent;border:0;box-shadow:none;overflow:visible;position:relative}
+#studentView .stepi-companion-reverse{align-items:flex-end}
+#studentView .stepi-speech{position:relative;flex:1;background:#fff;border:1px solid #E8E6DF;border-radius:24px;padding:16px 17px;box-shadow:0 9px 26px rgba(20,20,20,.04);min-width:0}
+#studentView .stepi-speech:before{content:'';position:absolute;width:17px;height:17px;background:#fff;border:1px solid #E8E6DF;transform:rotate(45deg);bottom:26px;z-index:0}
+#studentView .stepi-speech-right:before{left:-9px;border-top:0;border-right:0}
+#studentView .stepi-speech-left:before{right:-9px;border-bottom:0;border-left:0}
+#studentView .stepi-speech>*{position:relative;z-index:1}
+#studentView .stepi-speech .eyebrow{font-size:10px;font-weight:900;letter-spacing:.8px;color:#9A7A16;margin-bottom:5px}
+#studentView .stepi-speech h2{font-size:21px;line-height:1.2;letter-spacing:-.7px;margin:0 0 6px;color:#202020}
+#studentView .stepi-speech p{font-size:12px;line-height:1.55;color:#6E6B65;margin:0}
+
+/* Home: mascot stands outside the bubble instead of being cropped inside it. */
+#studentView .stepi-home-hero{padding:0!important;min-height:136px!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;color:#202020!important}
+#studentView .stepi-home-hero:after{display:none!important}
+#studentView .stepi-home-visual{position:relative!important;right:auto!important;bottom:auto!important;width:104px!important;height:120px!important;display:flex!important;align-items:flex-end!important;justify-content:center!important;flex:none!important;overflow:visible!important;z-index:2!important}
+#studentView .stepi-home-visual img{width:112px!important;height:112px!important;object-fit:contain!important;border-radius:0!important;mix-blend-mode:normal!important;filter:drop-shadow(0 7px 8px rgba(0,0,0,.05))!important}
+#studentView .stepi-home-copy{max-width:none!important;padding:0!important}
+#studentView .stepi-home-hero .eyebrow{color:#9A7A16!important;font-size:10px!important}
+#studentView .stepi-home-hero h2{font-size:21px!important;margin:0 0 6px!important}
+#studentView .stepi-home-hero p{font-size:12px!important;color:#6E6B65!important;min-height:0!important}
+#studentView .stepi-progress-line{margin-top:10px!important;color:#6B675F!important;font-size:10px!important}
+#studentView .stepi-home-hero .ring{width:38px!important;height:38px!important;background:conic-gradient(#FFD84D calc(var(--p)*1%),#EEECE5 0)!important}
+#studentView .stepi-home-hero .ring:after{width:29px!important;height:29px!important;background:#fff!important}
+#studentView .stepi-home-hero .ring b{font-size:9px!important}
+
+/* Timer: screenshot-inspired, centered circular focus UI without a second mascot. */
+#studentView .study-main-card{padding:16px 16px 14px!important;background:#fff!important;border:1px solid #EAE9E4!important;border-radius:26px!important;overflow:visible!important}
+#studentView .study-main-card:before{display:none!important}
+#studentView .study-card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;font-size:15px}
+#studentView .study-orbit{display:grid;place-items:center;padding:10px 0 14px}
+#studentView .study-orbit-ring{width:218px;height:218px;border-radius:50%;padding:9px;background:conic-gradient(from 210deg,#FFD84D 0 72%,#EFEFEB 72% 100%);box-shadow:0 10px 30px rgba(20,20,20,.035)}
+#studentView .study-orbit-inner{width:100%;height:100%;border-radius:50%;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center}
+#studentView .study-orbit-label{font-size:11px;color:#77736C;font-weight:800;max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#studentView .study-clock{font-size:35px!important;letter-spacing:1px!important;color:#202020!important;padding:8px 0 4px!important}
+#studentView .study-orbit .muted{font-size:10px!important;line-height:1.45;max-width:160px;color:#99958D}
+#studentView .study-main-card .big-action{max-width:218px;display:block;margin:0 auto;border-radius:999px;min-height:48px}
+#studentView .study-main-card .big-action.danger{background:#202020;color:#fff}
+#studentView .timer-record-link{margin-top:9px;color:#77736C}
+
+/* Plan empty state: transparent mascot speaking, no thumbnail block. */
+#studentView .stepi-plan-empty{display:flex!important;grid-template-columns:none!important;align-items:flex-end!important;gap:4px!important;background:transparent!important;border:0!important;border-radius:0!important;padding:3px 0 8px!important;margin:6px 0 10px!important;overflow:visible!important}
+#studentView .stepi-plan-empty img{width:98px!important;height:104px!important;object-fit:contain!important;border-radius:0!important;mix-blend-mode:normal!important;flex:none!important;filter:drop-shadow(0 5px 8px rgba(0,0,0,.04))}
+#studentView .stepi-plan-empty>div{position:relative;background:#fff;border:1px solid #E8E6DF;border-radius:21px;padding:14px 15px;box-shadow:0 8px 24px rgba(20,20,20,.035);flex:1}
+#studentView .stepi-plan-empty>div:before{content:'';position:absolute;left:-8px;bottom:23px;width:15px;height:15px;background:#fff;border-left:1px solid #E8E6DF;border-bottom:1px solid #E8E6DF;transform:rotate(45deg)}
+#studentView .stepi-plan-empty b{font-size:14px!important;color:#202020!important}
+#studentView .stepi-plan-empty span{font-size:11px!important;color:#726F68!important;line-height:1.55!important}
+
+/* Record: speech bubble on the left, mascot naturally leaning beside it. */
+#studentView .stepi-record-hero{padding:0!important;min-height:128px!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;margin-bottom:12px!important;overflow:visible!important}
+#studentView .stepi-record-hero .stepi-speech{order:1}
+#studentView .stepi-record-visual{order:2;width:104px;height:116px;display:flex;align-items:flex-end;justify-content:center;flex:none;overflow:visible}
+#studentView .stepi-record-hero img{position:relative!important;right:auto!important;bottom:auto!important;width:112px!important;height:108px!important;object-fit:contain!important;border-radius:0!important;mix-blend-mode:normal!important;filter:drop-shadow(0 6px 8px rgba(0,0,0,.045))!important}
+#studentView .stepi-record-hero .eyebrow{color:#9A7A16!important;font-size:9px!important}
+#studentView .stepi-record-hero h2{font-size:20px!important;margin:0 0 5px!important}
+#studentView .stepi-record-hero p{font-size:11px!important;color:#6E6B65!important;min-height:0!important}
+
+/* Calendar summary: same speech language, different pose. */
+#studentView .stepi-calendar-brief{display:flex!important;grid-template-columns:none!important;align-items:flex-end!important;gap:5px!important;background:transparent!important;border:0!important;border-radius:0!important;padding:4px 0 8px!important;margin:10px 0 14px!important;overflow:visible!important}
+#studentView .stepi-calendar-brief img{width:88px!important;height:90px!important;object-fit:contain!important;border-radius:0!important;mix-blend-mode:normal!important;flex:none!important;filter:drop-shadow(0 5px 8px rgba(0,0,0,.04))}
+#studentView .stepi-calendar-brief>div{position:relative;flex:1;background:#fff;border:1px solid #E8E6DF;border-radius:20px;padding:13px 14px;box-shadow:0 8px 22px rgba(20,20,20,.03)}
+#studentView .stepi-calendar-brief>div:before{content:'';position:absolute;left:-8px;bottom:22px;width:15px;height:15px;background:#fff;border-left:1px solid #E8E6DF;border-bottom:1px solid #E8E6DF;transform:rotate(45deg)}
+#studentView .stepi-calendar-brief b{font-size:12px!important;color:#222!important}
+#studentView .stepi-calendar-brief span{font-size:11px!important;color:#716E68!important}
+
+/* Cleaner neutral planner/stat surfaces. */
+#studentView .timer-planner-card,#studentView .record-stat-card{background:#fff}
+#studentView .ten-planner{border-color:#E8E8E5}
+#studentView .ten-header{background:#F7F7F5}
+#studentView .ten-hour{background:#FAFAF8}
+#studentView .ten-cell{border-color:#EEEEEA}
+#studentView .record-date-input,#studentView .record-today-btn,#studentView .iconbtn{background:#fff;border-color:#E6E5DF}
+#studentView .bar-chart i{background:#FFD84D}
+
+/* Login / splash / onboarding: remove yellow filter, keep yellow as accent only. */
+#loginView{background:#F8F8F5!important}
+#loginView .login-card{background:#fff;border-color:#EAE9E4;box-shadow:0 22px 60px rgba(20,20,20,.055)}
+.stepi-login-wrap{display:flex!important;align-items:flex-end!important;gap:3px!important;background:transparent!important;border:0!important;min-height:112px!important;padding:0!important;margin:8px 0 18px!important;overflow:visible!important}
+.stepi-login-wrap img{order:1;width:96px!important;height:102px!important;object-fit:contain!important;mix-blend-mode:normal!important;flex:none!important}
+.stepi-login-copy{order:2;position:relative;background:#fff;border:1px solid #E8E6DF;border-radius:21px;padding:13px 14px!important;box-shadow:0 8px 22px rgba(20,20,20,.035);flex:1}
+.stepi-login-copy:before{content:'';position:absolute;left:-8px;bottom:22px;width:15px;height:15px;background:#fff;border-left:1px solid #E8E6DF;border-bottom:1px solid #E8E6DF;transform:rotate(45deg)}
+.stepi-login-copy .stepi-chip{background:#FFD84D!important;color:#222!important;margin-bottom:6px!important}
+.stepi-login-copy b{font-size:16px!important;line-height:1.28!important}
+.stepi-login-copy span{font-size:10px!important;color:#716E68!important;line-height:1.5!important}
+.student-splash{background:#FAFAF7!important}
+.student-splash img{width:185px!important;height:170px!important;object-fit:contain!important;mix-blend-mode:normal!important;filter:drop-shadow(0 8px 12px rgba(0,0,0,.045))!important}
+.student-splash-check{background:#FFD84D!important;color:#202020!important}
+.stepi-onboarding{background:#F8F8F5!important}
+.stepi-onboard-card{border-color:#EAE9E4!important;box-shadow:0 22px 60px rgba(20,20,20,.055)!important}
+.stepi-onboard-visual{background:#F4F4F0!important;overflow:visible!important}
+.stepi-onboard-visual img{object-fit:contain!important;mix-blend-mode:normal!important;filter:drop-shadow(0 8px 10px rgba(0,0,0,.04))}
+.stepi-onboard-next{background:#FFD84D!important;color:#202020!important}
+
+/* Prevent old yellow image-card treatments from bleeding through. */
+#studentView img[src*="stepi-"]{background:transparent}
+
+@media(max-width:390px){
+  #studentView .stepi-companion{min-height:120px}
+  #studentView .stepi-home-visual{width:88px!important;height:108px!important}
+  #studentView .stepi-home-visual img{width:96px!important;height:100px!important}
+  #studentView .stepi-speech{padding:14px 14px;border-radius:21px}
+  #studentView .stepi-speech h2{font-size:19px}
+  #studentView .study-orbit-ring{width:204px;height:204px}
+  #studentView .study-main-card .big-action{max-width:204px}
+  #studentView .stepi-record-visual{width:92px;height:104px}
+  #studentView .stepi-record-hero img{width:99px!important;height:97px!important}
+  #studentView .stepi-plan-empty img{width:88px!important;height:96px!important}
+  #studentView .stepi-calendar-brief img{width:78px!important;height:82px!important}
+}
+
+#studentView .study-main-card.is-running .study-orbit-ring{background:conic-gradient(from 210deg,#FFD84D 0 86%,#EDEDEA 86% 100%);animation:timerGlow 2.8s ease-in-out infinite}
+@keyframes timerGlow{0%,100%{box-shadow:0 10px 30px rgba(20,20,20,.035)}50%{box-shadow:0 12px 34px rgba(255,216,77,.18)}}
+@media(prefers-reduced-motion:reduce){#studentView .study-main-card.is-running .study-orbit-ring{animation:none!important}}
 </style>
 </head>
 <body>
@@ -348,7 +485,7 @@ body{background:var(--bg);color:var(--text);letter-spacing:-.15px}
     <div class="login-logo">S</div>
     <h1>STEPFLOW</h1>
     <p>계획은 가볍게, 기록은 자동으로.</p>
-    <div class="stepi-login-wrap"><div class="stepi-login-copy"><span class="stepi-chip">STUDY SECRETARY</span><b>공부는 네가,<br>정리는 스텝이가.</b><span>오늘 할 일부터 공부 기록까지<br>부담 없이 이어지게 도와줄게.</span></div><img src="/stepi-happy.png" alt="비서 강아지 스텝이"></div>
+    <div class="stepi-login-wrap"><img src="/stepi-happy.png" alt="비서 강아지 스텝이"><div class="stepi-login-copy"><span class="stepi-chip">STEP-i</span><b>안녕! 나는 스텝이야.</b><span>공부는 네가 하고, 기록과 계획 정리는 내가 옆에서 도와줄게.</span></div></div>
     <form id="loginForm">
       <div class="field"><label>아이디</label><input id="loginId" autocomplete="username" placeholder="아이디만 입력" required></div>
       <button class="btn primary wide" type="submit">시작하기</button>
@@ -363,9 +500,24 @@ body{background:var(--bg);color:var(--text);letter-spacing:-.15px}
   <header class="topbar"><div class="brandrow"><div class="brand"><div class="brandmark">S</div><div><b>STEPFLOW</b><small id="studentName">학생</small><div id="syncStatus" class="sync-status"><span class="sync-dot"></span><span id="syncStatusText">동기화됨</span></div></div></div><button class="userbtn" id="studentMenuBtn">내 계정 ▾</button></div></header>
   <main>
     <section class="page active" data-page="today">
-      <div class="hero stepi-home-hero"><div class="stepi-home-copy"><div class="eyebrow" id="todayLabel"></div><h2 id="heroTitle">오늘도 한 걸음씩</h2><p id="heroMsg">오늘 계획을 불러오는 중</p><div class="stepi-progress-line"><div class="ring" id="todayRing"><b id="todayPct">0%</b></div><span>오늘 계획 진행</span></div></div><div class="stepi-home-visual"><img id="stepiHomeImg" src="/stepi-happy.png" alt="비서 강아지 스텝이"></div></div>
+      <div class="stepi-companion stepi-home-hero">
+        <div class="stepi-home-visual"><img id="stepiHomeImg" src="/stepi-happy.png" alt="비서 강아지 스텝이"></div>
+        <div class="stepi-speech stepi-speech-right">
+          <div class="eyebrow" id="todayLabel"></div>
+          <h2 id="heroTitle">오늘도 한 걸음씩</h2>
+          <p id="heroMsg">오늘 계획을 불러오는 중</p>
+          <div class="stepi-progress-line"><div class="ring" id="todayRing"><b id="todayPct">0%</b></div><span>오늘 계획 진행</span></div>
+        </div>
+      </div>
       <div class="card"><h3><span>🏫 출결</span><span class="pill" id="attendancePill">미입실</span></h3><div class="metric-grid"><div class="metric"><small>입실</small><b id="inTime">-</b></div><div class="metric"><small>오늘 체류</small><b id="stayTime">0분</b></div></div><button class="big-action" id="attendanceBtn">입실하기</button></div>
-      <div class="card study-main-card"><h3><span>공부 타이머</span><span class="pill" id="studyPill">대기</span></h3><div class="study-clock" id="studyTimer">00:00:00</div><div class="study-copy"><b id="studySubject">누르면 바로 기록돼요</b><div class="muted" id="studyDetail"></div></div><button class="big-action" id="studyBtn">공부 시작</button><button class="timer-record-link" type="button" id="openRecordBtn">오늘 기록 보기 ›</button></div>
+      <div class="card study-main-card" id="studyMainCard">
+        <div class="study-card-head"><b>공부 타이머</b><span class="pill" id="studyPill">대기</span></div>
+        <div class="study-orbit" aria-label="공부 타이머">
+          <div class="study-orbit-ring"><div class="study-orbit-inner"><span class="study-orbit-label" id="studySubject">누르면 바로 기록돼요</span><div class="study-clock" id="studyTimer">00:00:00</div><div class="muted" id="studyDetail"></div></div></div>
+        </div>
+        <button class="big-action" id="studyBtn">공부 시작</button>
+        <button class="timer-record-link" type="button" id="openRecordBtn">오늘 기록 보기 ›</button>
+      </div>
       <div class="section-head"><h2 class="section-title">오늘 할 일</h2><button class="add-mini" id="addTodoBtn">+ 할 일</button></div><div class="card" id="todayPlans"></div>
       <div class="card" id="todayLectureCard"><h3><span>▶️ 오늘 인강</span><small>루틴에서 자동 표시</small></h3><div id="todayLectures"></div></div>
     </section>
@@ -386,7 +538,10 @@ body{background:var(--bg);color:var(--text);letter-spacing:-.15px}
     </section>
 
     <section class="page" data-page="record">
-      <div class="hero stepi-record-hero"><div class="eyebrow">STEP-i RECORD</div><h2 id="recordStepiTitle">오늘 기록을 정리했어.</h2><p id="progressHero">날짜를 골라 그날 기록을 확인하고 수정할 수 있어.</p><img id="stepiRecordImg" src="/stepi-record.png" alt="기록을 정리하는 스텝이"></div>
+      <div class="stepi-companion stepi-record-hero stepi-companion-reverse">
+        <div class="stepi-speech stepi-speech-left"><div class="eyebrow">STEP-i RECORD</div><h2 id="recordStepiTitle">오늘 기록을 정리했어.</h2><p id="progressHero">날짜를 골라 그날 기록을 확인하고 수정할 수 있어.</p></div>
+        <div class="stepi-record-visual"><img id="stepiRecordImg" src="/stepi-record.png" alt="기록을 정리하는 스텝이"></div>
+      </div>
       <div class="record-datebar"><button class="iconbtn" id="recordPrevDate">‹</button><input class="record-date-input" id="recordDateInput" type="date"><button class="iconbtn" id="recordNextDate">›</button><button class="record-today-btn" id="recordTodayBtn">오늘</button></div>
 
       <div class="card timer-planner-card">
@@ -573,7 +728,7 @@ $('#addTodoBtn').onclick=()=>openTodoModal(todayISO());
 
 function renderAttendanceLive(){if(!payload)return;const a=attendanceOn(payload.data,todayISO()),pill=$('#attendancePill'),btn=$('#attendanceBtn');let stay=0;for(const r of a.recs){const end=r.outAt?new Date(r.outAt):new Date();stay+=Math.max(0,(end-new Date(r.inAt))/1000)}if(a.open){pill.textContent='입실 중';pill.className='pill good';btn.textContent='퇴실하기';btn.className='big-action danger'}else if(a.recs.length){pill.textContent='오늘 출결 완료';pill.className='pill blue';btn.textContent='다시 입실하기';btn.className='big-action'}else{pill.textContent='미입실';pill.className='pill';btn.textContent='입실하기';btn.className='big-action'}$('#inTime').textContent=a.first?fmtHM(a.first.inAt):'-';$('#stayTime').textContent=secondsText(stay)}
 $('#attendanceBtn').onclick=async()=>{const a=attendanceOn(payload.data,todayISO()),action=a.open?'out':'in',at=new Date().toISOString(),id=a.open?a.open.id:uid('att');try{payload=await api('/api/attendance',{method:'POST',body:JSON.stringify({action,at,id})});toast(navigator.onLine?(a.open?'퇴실했어 · 관리자에게 알림 전송':'입실했어 · 관리자에게 알림 전송 🔔'):(a.open?'퇴실 기록을 기기에 저장했어':'입실 기록을 기기에 저장했어'));renderToday()}catch(e){toast('출결 처리에 실패했어')}};
-function renderStudy(){const a=payload.data.activeStudy,pill=$('#studyPill'),btn=$('#studyBtn');if(a){pill.textContent='기록 중';pill.className='pill good';$('#studySubject').textContent=a.todoTitle||'미기록 플랜';$('#studyDetail').textContent=a.todoTitle?'오늘 할 일과 연결되어 있어요.':'오늘 할 일의 시작을 누르면 지금 타이머에 연결돼요.';$('#studyTimer').textContent=clock(currentStudySeconds());btn.textContent='공부 종료';btn.className='big-action danger'}else{pill.textContent='대기';pill.className='pill';$('#studySubject').textContent='누르면 바로 기록돼요';$('#studyDetail').textContent='할 일을 고르지 않고 시작하면 미기록 플랜으로 남아요.';$('#studyTimer').textContent='00:00:00';btn.textContent='공부 시작';btn.className='big-action'}}
+function renderStudy(){const a=payload.data.activeStudy,pill=$('#studyPill'),btn=$('#studyBtn'),card=$('#studyMainCard');card?.classList.toggle('is-running',!!a);if(a){pill.textContent='기록 중';pill.className='pill good';$('#studySubject').textContent=a.todoTitle||'미기록 플랜';$('#studyDetail').textContent=a.todoTitle?'오늘 할 일과 연결되어 있어요.':'오늘 할 일의 시작을 누르면 지금 타이머에 연결할 수 있어요.';$('#studyTimer').textContent=clock(currentStudySeconds());btn.textContent='공부 종료';btn.className='big-action danger'}else{pill.textContent='대기';pill.className='pill';$('#studySubject').textContent='바로 시작해도 괜찮아';$('#studyDetail').textContent='할 일을 고르지 않으면 미기록 플랜으로 남아요.';$('#studyTimer').textContent='00:00:00';btn.textContent='공부 시작';btn.className='big-action'}}
 $('#studyBtn').onclick=async()=>{if(payload.data.activeStudy)return studyFinishModal();try{payload=await api('/api/study/start',{method:'POST',body:JSON.stringify({id:uid('run'),startAt:new Date().toISOString()})});renderToday();toast(navigator.onLine?'공부를 시작했어요':'공부 시작 · 오프라인 저장 중')}catch(e){toast(e.message==='already_running'?'이미 공부 기록 중이야':'시작하지 못했어')}};
 async function startTodoStudy(id){const todo=payload.data.plans.day.find(x=>x.id===id);if(!todo)return;const a=payload.data.activeStudy;try{if(!a){payload=await api('/api/study/start',{method:'POST',body:JSON.stringify({todoId:id,id:uid('run'),startAt:new Date().toISOString()})});renderToday();toast(`“${todo.title}” 공부를 시작했어요${navigator.onLine?'':' · 오프라인 저장'}`);return}if(a.todoId===id)return toast('이미 이 할 일을 공부 중이야');if(a.todoId)return toast(`지금 “${a.todoTitle||'다른 할 일'}”을 공부 중이야. 먼저 공부 종료를 눌러줘.`);payload=await api('/api/study/assign',{method:'POST',body:JSON.stringify({todoId:id})});renderToday();toast(`현재 타이머를 “${todo.title}”에 연결했어요`)}catch(e){toast('할 일에 연결하지 못했어')}}
 function studyStartModal(){return $('#studyBtn').click()}
